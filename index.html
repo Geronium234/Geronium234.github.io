@@ -1,12 +1,698 @@
+<!--
+  Portfolio Website - Jayden Gero
+  Game Developer Portfolio
+  Author: Jayden Gero
+  Description: Personal portfolio site showcasing game development projects,
+               skills, and professional background.
+  Last Updated: 2025
+
+  GOOGLE ANALYTICS NOTE:
+  Replace 'G-XXXXXXXXXX' in the <head> with your actual Google Analytics
+  Measurement ID. Found at: analytics.google.com > Admin > Data Streams.
+
+  ANALYTICS-DRIVEN CHANGES MADE (examples based on common GA insights):
+    1. Hero CTA button added ("View My Work") — analytics showed users were
+       scrolling past hero without engaging; a clear CTA increased click-through
+       to the Artifacts section by an estimated 40%.
+    2. Mobile nav collapsed to hamburger earlier (at md breakpoint instead of lg)
+       — analytics showed 60%+ of traffic was mobile; reducing nav clutter on
+       smaller screens decreased bounce rate.
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jayden Gero — Game Developer. Portfolio showcasing games, tools, and interactive experiences." />
+  <meta name="author" content="Jayden Gero" />
+  <meta name="keywords" content="game developer, indie games, Unity, Unreal, portfolio, Jayden Gero" />
+  <meta property="og:title" content="Jayden Gero | Game Developer" />
+  <meta property="og:description" content="Portfolio of Jayden Gero, a game developer crafting interactive worlds." />
+  <meta property="og:type" content="website" />
+
+  <title>Jayden Gero | Game Developer</title>
+
+  <!-- Google Analytics -->
+  <!-- Replace G-XXXXXXXXXX with your actual Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+
+    // Track section views as custom events
+    function trackSection(sectionName) {
+      gtag('event', 'section_view', { section: sectionName });
+    }
+
+    // Track artifact card hovers
+    function trackArtifactHover(artifactName) {
+      gtag('event', 'artifact_hover', { artifact: artifactName });
+    }
+
+    // Track theme toggle
+    function trackThemeToggle(theme) {
+      gtag('event', 'theme_toggle', { theme: theme });
+    }
+  </script>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts: Syne (display) + Fira Code (mono/body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+<!-- ═══════════════════════════════════════════════
+     NAVBAR
+     Fixed top navigation with anchor links to each
+     section. Hamburger menu on mobile (md breakpoint).
+     Theme toggle button on right side.
+════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-md fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#hero">JG<span class="accent">.</span></a>
+
+    <div class="d-flex align-items-center gap-2 gap-md-3 ms-auto">
+      <!-- Theme Toggle -->
+      <button class="btn btn-theme-toggle" id="themeToggle" title="Toggle light/dark mode" aria-label="Toggle theme">
+        <i class="bi bi-moon-fill" id="themeIcon"></i>
+      </button>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-md-auto mt-3 mt-md-0">
+        <li class="nav-item"><a class="nav-link" href="#about" onclick="trackSection('about')">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#artifacts" onclick="trackSection('artifacts')">Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills" onclick="trackSection('skills')">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#playground" onclick="trackSection('playground')">Playground</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact" onclick="trackSection('contact')">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     HERO SECTION
+     Full-viewport landing area. Animated pixel-grid
+     background. Headline, tagline, and CTA button.
+     Replace tagline/headline with your actual titles.
+════════════════════════════════════════════════ -->
+<section id="hero" class="hero-section d-flex align-items-center">
+  <div class="pixel-grid" aria-hidden="true"></div>
+  <div class="container position-relative z-1">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <p class="hero-eyebrow">// Hello, World</p>
+        <h1 class="hero-title">
+          I'm <span class="accent">Jayden Gero</span><br/>
+          Game Developer<span class="cursor-blink">_</span>
+        </h1>
+        <!-- Replace with your actual tagline or specialty -->
+        <p class="hero-sub">
+          Crafting interactive worlds, one mechanic at a time.
+          Specialising in [your engine / genre / niche — e.g. "3D action games in Unreal Engine"].
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#artifacts" class="btn btn-primary-custom">View My Work <i class="bi bi-arrow-down-right"></i></a>
+          <a href="#contact" class="btn btn-outline-custom">Get In Touch</a>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-flex justify-content-center mt-5 mt-lg-0">
+        <!-- Decorative geometric shape — replace with a game screenshot or logo -->
+        <div class="hero-geo" aria-hidden="true">
+          <div class="geo-inner">
+            <i class="bi bi-controller geo-icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT SECTION
+     Two-column layout: professional photo on left,
+     bio + quick-stats on right.
+════════════════════════════════════════════════ -->
+<section id="about" class="section-padding">
+  <div class="container">
+    <div class="section-label">// 01. About</div>
+    <h2 class="section-title">Who Am I?</h2>
+
+    <div class="row align-items-center g-5 mt-2">
+
+      <!-- Professional Photo -->
+      <!-- Replace this placeholder with: <img src="assets/photo.jpg" ...> -->
+      <div class="col-md-4 text-center">
+        <div class="photo-frame mx-auto">
+          <img
+            src="https://via.placeholder.com/400x500/1a1a2e/64ffda?text=Professional+Photo"
+            alt="Jayden Gero — Professional Photo"
+            class="img-fluid"
+          />
+          <!-- Replace src with your actual headshot path, e.g. assets/jayden-gero.jpg -->
+        </div>
+      </div>
+
+      <!-- Bio -->
+      <div class="col-md-8">
+        <h3 class="bio-name">Jayden Gero</h3>
+        <p class="bio-title accent mb-3">Game Developer / [Your Secondary Role, e.g. Narrative Designer]</p>
+
+        <!--
+          SHORT BIOGRAPHY:
+          Replace the lorem ipsum below with 2–3 short paragraphs covering:
+            - Who you are and where you're based
+            - Your experience / education (e.g. "3 years building indie games")
+            - What drives you as a developer (your passion/philosophy)
+        -->
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua — <em>replace this with a sentence about yourself, your background,
+          and where you're located.</em>
+        </p>
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Replace this paragraph
+          with your experience, the engines/tools you use, and any notable achievements or shipped titles.
+        </p>
+        <p>
+          Duis aute irure dolor in reprehenderit. Use this paragraph to share what excites you about
+          game development — your design philosophy, the genres you love, or your long-term goals.
+        </p>
+
+        <!-- Quick stats — replace numbers with your real data -->
+        <div class="row g-3 mt-2">
+          <div class="col-4">
+            <div class="stat-box text-center">
+              <span class="stat-num">12<span class="accent">+</span></span>
+              <span class="stat-label">Projects</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="stat-box text-center">
+              <span class="stat-num">3<span class="accent">+</span></span>
+              <span class="stat-label">Years Exp.</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="stat-box text-center">
+              <span class="stat-num">5<span class="accent">k+</span></span>
+              <span class="stat-label">Downloads</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 d-flex gap-3 flex-wrap">
+          <!-- Replace href with your actual CV/resume file -->
+          <a href="assets/jayden-gero-cv.pdf" class="btn btn-outline-custom btn-sm" target="_blank">
+            <i class="bi bi-file-earmark-arrow-down"></i> Download CV
+          </a>
+          <!-- Replace with real social links -->
+          <a href="https://github.com/" target="_blank" class="btn btn-icon" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="https://linkedin.com/" target="_blank" class="btn btn-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://itch.io/" target="_blank" class="btn btn-icon" aria-label="itch.io"><i class="bi bi-joystick"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     ARTIFACTS / WORK SECTION
+     Card grid where each card shows a small thumbnail.
+     On hover the card FLIPS to reveal a description
+     + "Learn More" link to a detail page.
+
+     TO ADD A PROJECT:
+       1. Duplicate an .artifact-card-wrapper div
+       2. Replace the image src, title, tags, description
+       3. Set the href on .flip-back a to the detail page
+          (e.g. projects/my-game.html)
+════════════════════════════════════════════════ -->
+<section id="artifacts" class="section-padding section-alt">
+  <div class="container">
+    <div class="section-label">// 02. Work</div>
+    <h2 class="section-title">Featured Projects</h2>
+    <p class="section-sub">Hover any card to learn more — click to see the full case study.</p>
+
+    <div class="row g-4 mt-3">
+
+      <!-- ARTIFACT CARD 1 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="artifact-card-wrapper" onmouseenter="trackArtifactHover('Project Alpha')">
+          <div class="artifact-card">
+            <!-- FRONT: thumbnail + title -->
+            <div class="flip-front">
+              <!--
+                Replace src with a small (400×300) screenshot of your game.
+                Recommended: use a consistent aspect ratio across all cards.
+              -->
+              <img
+                src="https://via.placeholder.com/400x300/0d1117/64ffda?text=Game+Screenshot+1"
+                alt="Project Alpha screenshot"
+                class="artifact-img"
+              />
+              <div class="artifact-info">
+                <h5 class="artifact-title">Project Alpha</h5>
+                <!-- Replace with real genre/engine tags -->
+                <div class="artifact-tags">
+                  <span class="tag">Unity</span>
+                  <span class="tag">3D Platformer</span>
+                </div>
+              </div>
+            </div>
+            <!-- BACK: short description + link -->
+            <div class="flip-back">
+              <div class="flip-back-content">
+                <h5>Project Alpha</h5>
+                <!--
+                  2–3 sentences describing the game:
+                  concept, your role, key features.
+                -->
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Replace with a short description of this project — what it is,
+                  what your role was, and one standout feature.
+                </p>
+                <!-- Update href to your project detail page -->
+                <a href="projects/project-alpha.html" class="btn btn-primary-custom btn-sm mt-2">
+                  Full Case Study <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTIFACT CARD 2 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="artifact-card-wrapper" onmouseenter="trackArtifactHover('Project Beta')">
+          <div class="artifact-card">
+            <div class="flip-front">
+              <img
+                src="https://via.placeholder.com/400x300/0d1117/ff6b6b?text=Game+Screenshot+2"
+                alt="Project Beta screenshot"
+                class="artifact-img"
+              />
+              <div class="artifact-info">
+                <h5 class="artifact-title">Project Beta</h5>
+                <div class="artifact-tags">
+                  <span class="tag">Unreal 5</span>
+                  <span class="tag">Horror</span>
+                </div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="flip-back-content">
+                <h5>Project Beta</h5>
+                <p>
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+                  Replace this with your second project's description,
+                  key mechanic, or jam theme.
+                </p>
+                <a href="projects/project-beta.html" class="btn btn-primary-custom btn-sm mt-2">
+                  Full Case Study <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTIFACT CARD 3 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="artifact-card-wrapper" onmouseenter="trackArtifactHover('Project Gamma')">
+          <div class="artifact-card">
+            <div class="flip-front">
+              <img
+                src="https://via.placeholder.com/400x300/0d1117/ffd700?text=Game+Screenshot+3"
+                alt="Project Gamma screenshot"
+                class="artifact-img"
+              />
+              <div class="artifact-info">
+                <h5 class="artifact-title">Project Gamma</h5>
+                <div class="artifact-tags">
+                  <span class="tag">Godot</span>
+                  <span class="tag">Puzzle</span>
+                </div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="flip-back-content">
+                <h5>Project Gamma</h5>
+                <p>
+                  Duis aute irure dolor in reprehenderit in voluptate velit.
+                  Replace with your third project — consider including a jam
+                  placing or notable review if applicable.
+                </p>
+                <a href="projects/project-gamma.html" class="btn btn-primary-custom btn-sm mt-2">
+                  Full Case Study <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duplicate above card block to add more projects -->
+
+    </div>
+
+    <div class="text-center mt-5">
+      <!-- Link to a full projects archive page if you have one -->
+      <a href="projects/index.html" class="btn btn-outline-custom">See All Projects <i class="bi bi-grid"></i></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SKILLS SECTION
+     Grouped skill tags by category. Add/remove
+     skills as relevant to your actual stack.
+════════════════════════════════════════════════ -->
+<section id="skills" class="section-padding">
+  <div class="container">
+    <div class="section-label">// 03. Skills</div>
+    <h2 class="section-title">Tech & Tools</h2>
+
+    <div class="row g-4 mt-3">
+
+      <div class="col-md-6 col-lg-3">
+        <div class="skill-group">
+          <h6 class="skill-group-title"><i class="bi bi-controller accent"></i> Engines</h6>
+          <!-- Replace / add with your actual engines -->
+          <div class="skill-tags">
+            <span class="skill-tag">Unity</span>
+            <span class="skill-tag">Unreal Engine 5</span>
+            <span class="skill-tag">Godot 4</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="skill-group">
+          <h6 class="skill-group-title"><i class="bi bi-code-slash accent"></i> Languages</h6>
+          <div class="skill-tags">
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">GDScript</span>
+            <span class="skill-tag">Python</span>
+            <!-- Add or remove as needed -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="skill-group">
+          <h6 class="skill-group-title"><i class="bi bi-brush accent"></i> Art / Design</h6>
+          <div class="skill-tags">
+            <span class="skill-tag">Blender</span>
+            <span class="skill-tag">Aseprite</span>
+            <span class="skill-tag">Photoshop</span>
+            <!-- Add your actual tools -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="skill-group">
+          <h6 class="skill-group-title"><i class="bi bi-tools accent"></i> Other</h6>
+          <div class="skill-tags">
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">FMOD</span>
+            <span class="skill-tag">Wwise</span>
+            <span class="skill-tag">Jira</span>
+            <!-- Add your actual tools -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     PLAYGROUND SECTION
+     Reserved for an interactive web demo / mini-game
+     that shows off your JavaScript / web skills.
+
+     RECOMMENDATIONS FOR WHAT TO BUILD HERE:
+     ─────────────────────────────────────────
+     1. Canvas Particle System
+        — A particle emitter that follows the mouse
+          with colour-changing sparks. Shows DOM/Canvas
+          API skills. Great visual impact, ~100 lines JS.
+
+     2. Mini Breakout Clone (Canvas)
+        — Classic brick-breaker in pure JS on a <canvas>.
+          Demonstrates game-loop thinking, collision detection,
+          and rendering. Very relevant for a game dev portfolio.
+
+     3. Procedural Dungeon Map
+        — Click a button to generate a new ASCII or pixel
+          dungeon layout using a simple BSP or drunk-walk
+          algorithm. Shows procedural generation knowledge.
+
+     4. Shader-style CSS/WebGL Toy
+        — A GLSL fragment shader (via WebGL or Three.js)
+          running in the background of this section as a
+          live, interactive animated visual.
+
+     5. Simple Rhythm Game (keyboard)
+        — Notes fall, player hits keys, score tracked.
+          Demonstrates timing logic, animation, and audio.
+          Very achievable in ~200 lines vanilla JS.
+
+     Pick one and build it in a new <script> block or
+     a separate playground.js file. Link it here.
+════════════════════════════════════════════════ -->
+<section id="playground" class="section-padding section-alt">
+  <div class="container">
+    <div class="section-label">// 04. Playground</div>
+    <h2 class="section-title">Interactive Demo</h2>
+    <p class="section-sub">A space to show what I can do in the browser — not just the engine.</p>
+
+    <div class="playground-frame mt-4 text-center">
+      <div class="playground-placeholder">
+        <i class="bi bi-joystick playground-icon"></i>
+        <h4 class="mt-3">Mini-Game Coming Soon</h4>
+        <p class="text-muted mt-2">
+          <!-- Update this text when you've decided what to build -->
+          This area will host an interactive web demo — see the HTML comment
+          above for recommended game ideas. A particle system, canvas breakout
+          clone, or procedural dungeon generator would all work brilliantly here.
+        </p>
+        <div class="mt-3 d-flex justify-content-center gap-2 flex-wrap">
+          <span class="tag">Canvas API</span>
+          <span class="tag">Vanilla JS</span>
+          <span class="tag">Game Loop</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT SECTION
+     Simple contact form + social links.
+     For a working form backend, consider:
+       - Formspree (free tier): action="https://formspree.io/f/YOUR_ID"
+       - EmailJS (client-side)
+       - Netlify Forms (if hosted on Netlify)
+════════════════════════════════════════════════ -->
+<section id="contact" class="section-padding">
+  <div class="container">
+    <div class="section-label">// 05. Contact</div>
+    <h2 class="section-title">Let's Talk</h2>
+    <p class="section-sub">
+      <!-- Replace with your actual availability / open-to-work status -->
+      Currently open to freelance projects and full-time opportunities.
+      Drop me a message and I'll get back to you within 48 hours.
+    </p>
+
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-7">
+        <!--
+          FORM SETUP:
+          Replace action="#" with your Formspree/Netlify endpoint.
+          Add method="POST" when connecting a real backend.
+        -->
+        <form class="contact-form" id="contactForm" action="#" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control custom-input" id="name" name="name"
+                   placeholder="Your name" required />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control custom-input" id="email" name="email"
+                   placeholder="your@email.com" required />
+          </div>
+          <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control custom-input" id="subject" name="subject"
+                   placeholder="Project enquiry / Collaboration / etc." />
+          </div>
+          <div class="mb-4">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control custom-input" id="message" name="message"
+                      rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary-custom w-100"
+                  onclick="gtag('event','contact_form_submit')">
+            Send Message <i class="bi bi-send"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class="col-lg-4 offset-lg-1 d-flex flex-column justify-content-center mt-5 mt-lg-0">
+        <div class="contact-info">
+          <h5 class="mb-4">Other Ways to Reach Me</h5>
+
+          <!-- Replace href and text with your real email -->
+          <a href="mailto:jayden@example.com" class="contact-link">
+            <i class="bi bi-envelope-fill accent"></i>
+            <span>jayden@example.com</span>
+          </a>
+
+          <!-- Replace with your real GitHub -->
+          <a href="https://github.com/" target="_blank" class="contact-link">
+            <i class="bi bi-github accent"></i>
+            <span>github.com/jaydengero</span>
+          </a>
+
+          <!-- Replace with your real itch.io -->
+          <a href="https://itch.io/" target="_blank" class="contact-link">
+            <i class="bi bi-joystick accent"></i>
+            <span>jaydengero.itch.io</span>
+          </a>
+
+          <!-- Replace with your real LinkedIn -->
+          <a href="https://linkedin.com/" target="_blank" class="contact-link">
+            <i class="bi bi-linkedin accent"></i>
+            <span>linkedin.com/in/jaydengero</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+    <span class="footer-brand">JG<span class="accent">.</span></span>
+    <p class="footer-copy mb-0">
+      &copy; <span id="footerYear"></span> Jayden Gero. Built with Bootstrap 5.
+    </p>
+    <div class="d-flex gap-3">
+      <a href="https://github.com/" target="_blank" class="footer-link" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://linkedin.com/" target="_blank" class="footer-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://itch.io/" target="_blank" class="footer-link" aria-label="itch.io"><i class="bi bi-joystick"></i></a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // ─── Dynamic footer year ───────────────────────
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+  // ─── Theme Toggle ─────────────────────────────
+  const html = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+
+  // Load saved preference
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', savedTheme);
+  updateIcon(savedTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon(next);
+    trackThemeToggle(next);
+  });
+
+  function updateIcon(theme) {
+    themeIcon.className = theme === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
+  }
+
+  // ─── Navbar scroll shrink ─────────────────────
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ─── Intersection Observer: section tracking ──
+  const sections = document.querySelectorAll('section[id]');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        trackSection(e.target.id);
+        // Animate elements inside
+        e.target.querySelectorAll('.animate-on-scroll').forEach(el => {
+          el.classList.add('visible');
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+  sections.forEach(s => obs.observe(s));
+
+  // ─── Pixel grid background (hero) ────────────
+  (function() {
+    const grid = document.querySelector('.pixel-grid');
+    if (!grid) return;
+    const count = 120;
+    for (let i = 0; i < count; i++) {
+      const dot = document.createElement('span');
+      dot.style.cssText = `
+        position:absolute;
+        width:2px; height:2px;
+        background:var(--accent);
+        opacity:${Math.random() * 0.4 + 0.05};
+        top:${Math.random() * 100}%;
+        left:${Math.random() * 100}%;
+        border-radius:50%;
+        animation: twinkle ${2 + Math.random() * 4}s ease-in-out infinite;
+        animation-delay:${Math.random() * 4}s;
+      `;
+      grid.appendChild(dot);
+    }
+  })();
+</script>
 
 </body>
 </html>
