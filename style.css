@@ -790,3 +790,25 @@ img { max-width: 100%; height: auto; }
   .section-title { font-size: 1.7rem; }
   .photo-frame { width: 220px; }
 }
+
+
+/* GAME CANVAS STYLES */
+#gameContainer{
+  text-align: center;
+}
+#gameBoard{
+  border: 3px solid;
+}
+#scoreText{
+  font-family: 'Fira Code', monospace;
+  font-size: 100px;
+}
+#resetBtn{
+  font-family: "Permanent Marker", cursive;
+  font-size: 22px;
+  width: 100px;
+  height: 50px;
+  border: 4px solid;
+  border-radius: 15px;
+  cursor: pointer;
+}

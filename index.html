@@ -289,7 +289,7 @@
                   Detective in Distress is a 2D visual novel where players take on the role of a detective trying to solve a missing person case by traveling to diffrent times. I was responsible for programming the story slider system, the 2D platforming, and implementing the art assets into the Unity engine.
                 </p>
                 <!-- Update href to your project detail page -->
-                <a href="projects/project-alpha.html" class="btn btn-primary-custom btn-sm mt-2">
+                <a href="projects/index.html#detective-in-distress" class="btn btn-primary-custom btn-sm mt-2">
                   Full Case Study <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -304,27 +304,25 @@
           <div class="artifact-card">
             <div class="flip-front">
               <img
-                src="https://via.placeholder.com/400x300/0d1117/ff6b6b?text=Game+Screenshot+2"
-                alt="Project Beta screenshot"
+                src="assets/KaboomImage.png"
+                alt="Kaboom screenshot"
                 class="artifact-img"
               />
               <div class="artifact-info">
-                <h5 class="artifact-title">Project Beta</h5>
+                <h5 class="artifact-title">Kaboom</h5>
                 <div class="artifact-tags">
-                  <span class="tag">Unreal 5</span>
-                  <span class="tag">Horror</span>
+                  <span class="tag">Godot</span>
+                  <span class="tag">3D</span>
                 </div>
               </div>
             </div>
             <div class="flip-back">
               <div class="flip-back-content">
-                <h5>Project Beta</h5>
+                <h5>Kaboom</h5>
                 <p>
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-                  Replace this with your second project's description,
-                  key mechanic, or jam theme.
+                  A personal project my friend and I built in Godot. Kaboom is a 3D fps that we made an intro level for off the idea of combining diffrent bullets from other weapons. I was responsible for programming the core gameplay mechanics, including the Animations, shooting system and level design.
                 </p>
-                <a href="projects/project-beta.html" class="btn btn-primary-custom btn-sm mt-2">
+                <a href="projects/index.html#kaboom" class="btn btn-primary-custom btn-sm mt-2">
                   Full Case Study <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -335,31 +333,30 @@
 
       <!-- ARTIFACT CARD 3 -->
       <div class="col-sm-6 col-lg-4">
-        <div class="artifact-card-wrapper" onmouseenter="trackArtifactHover('Project Gamma')">
+        <div class="artifact-card-wrapper" onmouseenter="trackArtifactHover('Skyrise Frictionless Ascent')">
           <div class="artifact-card">
             <div class="flip-front">
               <img
-                src="https://via.placeholder.com/400x300/0d1117/ffd700?text=Game+Screenshot+3"
-                alt="Project Gamma screenshot"
+                src="assets/SkyriseImage.png"
+                alt="Skyrise Frictionless Ascent screenshot"
                 class="artifact-img"
               />
               <div class="artifact-info">
-                <h5 class="artifact-title">Project Gamma</h5>
+                <h5 class="artifact-title">Skyrise Frictionless Ascent</h5>
                 <div class="artifact-tags">
-                  <span class="tag">Godot</span>
-                  <span class="tag">Puzzle</span>
+                  <span class="tag">Unity</span>
+                  <span class="tag">2D</span>
+                  <span class="tag">Vertical Platformer</span>
                 </div>
               </div>
             </div>
             <div class="flip-back">
               <div class="flip-back-content">
-                <h5>Project Gamma</h5>
+                <h5>Skyrise Frictionless Ascent</h5>
                 <p>
-                  Duis aute irure dolor in reprehenderit in voluptate velit.
-                  Replace with your third project — consider including a jam
-                  placing or notable review if applicable.
+                  A vertical platformer where players control a character with no friction, making movement and momentum key to navigating the level. I was responsible for creating everything in this project including programming the core movement mechanics, including the physics-based controls, level design, audio, and animations.
                 </p>
-                <a href="projects/project-gamma.html" class="btn btn-primary-custom btn-sm mt-2">
+                <a href="projects/index.html#skyrise-frictionless-ascent" class="btn btn-primary-custom btn-sm mt-2">
                   Full Case Study <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -480,25 +477,17 @@
 <section id="playground" class="section-padding section-alt">
   <div class="container">
     <div class="section-label">// 04. Playground</div>
-    <h2 class="section-title">Interactive Demo</h2>
+    <h2 class="section-title">Interactive Snake Game</h2>
     <p class="section-sub">A space to show what I can do in the browser — not just the engine.</p>
 
     <div class="playground-frame mt-4 text-center">
-      <div class="playground-placeholder">
-        <i class="bi bi-joystick playground-icon"></i>
-        <h4 class="mt-3">Mini-Game Coming Soon</h4>
-        <p class="text-muted mt-2">
-          <!-- Update this text when you've decided what to build -->
-          This area will host an interactive web demo — see the HTML comment
-          above for recommended game ideas. A particle system, canvas breakout
-          clone, or procedural dungeon generator would all work brilliantly here.
-        </p>
-        <div class="mt-3 d-flex justify-content-center gap-2 flex-wrap">
-          <span class="tag">Canvas API</span>
-          <span class="tag">Vanilla JS</span>
-          <span class="tag">Game Loop</span>
-        </div>
+      <!-- Simple Snake Game implemented in vanilla JS -->
+      <div id="gameContainer">
+        <canvas id="gameBoard" width="500" height="500"></canvas>
+        <div id="scoreText">0</div>
+        <button id="restartBtn">Restart Game</button>
       </div>
+      <script src="app.js"></script>
     </div>
   </div>
 </section>
@@ -518,7 +507,7 @@
     <h2 class="section-title">Let's Talk</h2>
     <p class="section-sub">
       <!-- Replace with your actual availability / open-to-work status -->
-      Currently open to freelance projects and full-time opportunities.
+      Currently looking for internships and job opportunities while I persue my studies at BSU.
       Drop me a message and I'll get back to you within 48 hours.
     </p>
 

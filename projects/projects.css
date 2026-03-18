@@ -1,0 +1,275 @@
+/*
+  projects/projects.css — Jayden Gero Portfolio
+  ───────────────────────────────────────────────
+  Styles exclusively for the projects archive page.
+  Loaded AFTER ../style.css so all existing variables,
+  navbar, footer, tag, button, and section classes are
+  already available — nothing here re-defines them.
+*/
+
+/* ── Page header strip ────────────────────────────── */
+.page-header {
+  padding: 130px 0 52px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Breadcrumb ───────────────────────────────────── */
+.custom-breadcrumb {
+  background: transparent;
+  padding: 0;
+  font-size: 0.78rem;
+}
+.custom-breadcrumb .breadcrumb-item a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.custom-breadcrumb .breadcrumb-item.active {
+  color: var(--text-muted);
+}
+.custom-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: var(--text-muted);
+}
+
+/* ── Two-column layout: sidebar + main ───────────── */
+.projects-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 60px 0 80px;
+}
+
+/* ── Sticky sidebar ──────────────────────────────── */
+.projects-sidebar {
+  width: 210px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 90px; /* clears fixed navbar */
+}
+
+.sidebar-back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 28px;
+  transition: color 0.2s;
+}
+.sidebar-back:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.sidebar-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 1px solid var(--border);
+}
+
+.sidebar-nav a {
+  display: block;
+  padding: 9px 16px;
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  line-height: 1.4;
+  transition: color 0.2s, border-color 0.2s, padding-left 0.2s;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  padding-left: 20px;
+  text-decoration: none;
+}
+
+/* ── Main content column ─────────────────────────── */
+.projects-main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Individual project block ────────────────────── */
+.project-entry {
+  padding-bottom: 72px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 72px;
+  scroll-margin-top: 100px; /* offset for fixed navbar on anchor jump */
+}
+.project-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.project-entry-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+/* Full-width screenshot */
+.project-entry-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display: block;
+  margin: 24px 0;
+  transition: border-color 0.2s;
+}
+.project-entry-img:hover {
+  border-color: var(--accent);
+}
+
+/* Prose + meta side by side */
+.project-entry-body {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.project-entry-prose {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-entry-prose h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin: 28px 0 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.project-entry-prose h4:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.project-entry-prose p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.85;
+  margin-bottom: 14px;
+}
+
+.project-entry-prose ul {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 2;
+  padding-left: 18px;
+  margin-bottom: 14px;
+}
+.project-entry-prose ul li::marker {
+  color: var(--accent);
+}
+
+/* ── Metadata card ───────────────────────────────── */
+.project-meta {
+  width: 175px;
+  flex-shrink: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  font-size: 0.8rem;
+}
+
+.project-meta dt {
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  margin-bottom: 3px;
+}
+
+.project-meta dd {
+  color: var(--text-secondary);
+  margin: 0 0 14px;
+}
+.project-meta dd:last-child {
+  margin-bottom: 0;
+}
+.project-meta a {
+  color: var(--accent);
+}
+
+/* ── WIP / coming-soon badge ─────────────────────── */
+.wip-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: var(--accent-gold);
+  color: #1a1a1a;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* ── Mobile ──────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .projects-layout {
+    flex-direction: column;
+    gap: 0;
+    padding-top: 36px;
+  }
+
+  .projects-sidebar {
+    width: 100%;
+    position: static;
+    margin-bottom: 36px;
+  }
+
+  /* Horizontal scrolling tab bar on mobile */
+  .sidebar-nav {
+    display: flex;
+    overflow-x: auto;
+    border-left: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+  }
+  .sidebar-nav li {
+    flex-shrink: 0;
+  }
+  .sidebar-nav a {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    margin-left: 0;
+    padding: 6px 14px 10px;
+    white-space: nowrap;
+  }
+  .sidebar-nav a:hover,
+  .sidebar-nav a.active {
+    border-left-color: transparent;
+    border-bottom-color: var(--accent);
+    padding-left: 14px;
+  }
+
+  .project-entry-body {
+    flex-direction: column;
+  }
+  .project-meta {
+    width: 100%;
+  }
+}
