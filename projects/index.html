@@ -130,13 +130,14 @@
           <span class="tag">C#</span>
         </div>
 
-        <!-- Replace src with ../assets/DIDIcon.jpg -->
-        <img
-          src="../assets/DIDIcon.jpg"
-          alt="Detective in Distress screenshot"
+        <!-- Video display for Detective in Distress -->
+        <video
+          src="../assets/DIDDisplay.mp4"
+          alt="Detective in Distress gameplay"
           class="project-entry-img"
-          onerror="this.src='https://via.placeholder.com/900x506/1c2230/64ffda?text=Detective+in+Distress'"
-        />
+          controls
+          style="width: 100%; height: auto; display: block;"
+        ></video>
 
         <div class="project-entry-body">
           <div class="project-entry-prose">
@@ -152,9 +153,7 @@
             <p>I was responsible for three main areas of development:</p>
             <ul>
               <li>
-                <strong>Story slider system</strong> — programmed the dialogue and scene-progression
-                system that drives the visual novel flow, handling branching, character expressions,
-                and timed text reveals.
+                <strong>Story slider system</strong> — programmed the sliding system using 3 diffrent images to create the illusion of scrolling through the story while using an arary to determin the previous, current, and next image to create a seamless loop of story progression.
               </li>
               <li>
                 <strong>2D platforming</strong> — built the movement and collision systems used in
@@ -172,16 +171,15 @@
               "The dialogue system needed to support mid-sentence pauses and portrait swaps
               simultaneously. I solved this with a coroutine-based event queue so art and
               text stayed in sync without race conditions." -->
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this with the most
-              interesting technical or creative challenge you faced and how you overcame it.
+              One of the biggest challenges in this project was expanding my own knoladge of what I could do. I had a lot of ideas for this project that I didnt know how to implement 
+              and I was worried that I wouldnt be able to bring my vision to life. However, I found that with a bit of research and a lot of trial and error, I was able to make our vision of the game come to life and it felt great.
             </p>
 
             <h4>What I Learned</h4>
             <p>
               <!-- Replace with real takeaways: a Unity API mastered, a team lesson,
               what you'd do differently. -->
-              Lorem ipsum dolor sit amet. Replace with genuine reflections — a skill developed,
-              a design lesson, or how this shaped future work.
+              I learned how it felt to actually work as a team. I had worked on group projects before but this was the first time that I had sat down in a room with my teammates for hours and talked about diffrent ideas. Seeing little pieces of everyones perspective come together to create the end result felt sureal and I cant wait to work on more projects with other people in the future.
             </p>
 
           </div>
@@ -191,9 +189,9 @@
             <dt>Language</dt>   <dd>C#</dd>
             <dt>Genre</dt>      <dd>2D Visual Novel / Platformer</dd>
             <dt>My Role</dt>    <dd>Programmer</dd>
-            <dt>Team Size</dt>  <dd>[e.g. 4-person team]</dd>
-            <dt>Year</dt>       <dd>[Year]</dd>
-            <dt>Status</dt>     <dd>[Completed / In Dev]</dd>
+            <dt>Team Size</dt>  <dd>4 person team</dd>
+            <dt>Year</dt>       <dd>2025</dd>
+            <dt>Status</dt>     <dd>Completed</dd>
             <!--
               <dt>Play</dt>
               <dd><a href="https://yourname.itch.io/did" target="_blank">itch.io ↗</a></dd>
@@ -219,13 +217,14 @@
           <span class="tag">GDScript</span>
         </div>
 
-        <!-- Replace src with ../assets/KaboomImage.png -->
-        <img
-          src="../assets/KaboomImage.png"
-          alt="Kaboom screenshot"
+        <!-- Video display for Kaboom -->
+        <video
+          src="../assets/KaboomDisplay.mp4"
+          alt="Kaboom gameplay"
           class="project-entry-img"
-          onerror="this.src='https://via.placeholder.com/900x506/1c2230/ff6b6b?text=Kaboom'"
-        />
+          controls
+          style="width: 100%; height: auto; display: block;"
+        ></video>
 
         <div class="project-entry-body">
           <div class="project-entry-prose">
@@ -248,13 +247,10 @@
               </li>
               <li>
                 <strong>Shooting system</strong> — designed and programmed the bullet-combination
-                mechanic, including projectile types, collision detection, and effect application
-                on enemies and the environment.
+                mechanic, including projectile types, inventory management, and the logic for merging bullet properties when combined.
               </li>
               <li>
-                <strong>Level design</strong> — blocked out and dressed the intro level, pacing
-                the player's discovery of each bullet type so the combination system is learned
-                naturally through play.
+                <strong>Level design</strong> — I created the layout for the level intro in godot and created the art assets for the level in blender.
               </li>
             </ul>
 
@@ -265,24 +261,21 @@
               "Players hold both fire buttons simultaneously; the system detects which projectile
               types are active, looks up a combination table, and spawns a merged projectile
               with combined stats and a new visual effect." -->
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this with a
-              detailed explanation of how the bullet-combination system works — both technically
-              and from the player's perspective.
+              We created the bullet combination mechanic by having the player have the weapon they wanted the bullet from equipped and then pressing the f button to select the weapon they wanted the bullet from. Then they swapped to the weapon they wanted the bullet in and pressed the f button to fire the combine the bullet to that weapon. Then when the user fires the weapon, the combined bullet is spawned.
             </p>
 
             <h4>Challenges &amp; Solutions</h4>
             <p>
               <!-- E.g.: Godot 4 physics edge cases, balancing the mechanic feel,
               collaborating on a shared GDScript codebase. -->
-              Lorem ipsum dolor sit amet. Replace with a real technical or design challenge
-              and how you resolved it.
+              Learning how to create an inventory was very challenging. I used tutorials to learn how to create one and then created animations to go along with the weapon swapping.
             </p>
 
             <h4>What I Learned</h4>
             <p>
               <!-- E.g.: first time in Godot 4, GDScript workflow, 3D level design,
               version control with a partner. -->
-              Lorem ipsum dolor sit amet. Replace with genuine takeaways from building this project.
+              This being my first time using Godot 4, I learned a lot and using a new system was 
             </p>
 
           </div>
@@ -293,8 +286,8 @@
             <dt>Genre</dt>      <dd>3D First-Person Shooter</dd>
             <dt>My Role</dt>    <dd>Programmer / Level Designer</dd>
             <dt>Team Size</dt>  <dd>2 (personal project)</dd>
-            <dt>Year</dt>       <dd>[Year]</dd>
-            <dt>Status</dt>     <dd>[Prototype / In Dev]</dd>
+            <dt>Year</dt>       <dd>2024</dd>
+            <dt>Status</dt>     <dd>Finished</dd>
             <!--
               <dt>Play</dt>
               <dd><a href="https://yourname.itch.io/kaboom" target="_blank">itch.io ↗</a></dd>
@@ -320,13 +313,14 @@
           <span class="tag">Vertical Platformer</span>
         </div>
 
-        <!-- Replace src with ../assets/SkyriseImage.png -->
-        <img
-          src="../assets/SkyriseImage.png"
-          alt="Skyrise Frictionless Ascent screenshot"
+        <!-- Video display for Skyrise Frictionless Ascent -->
+        <video
+          src="../assets/SkyiseDisplay.mp4"
+          alt="Skyrise Frictionless Ascent gameplay"
           class="project-entry-img"
-          onerror="this.src='https://via.placeholder.com/900x506/1c2230/ffd700?text=Skyrise+Frictionless+Ascent'"
-        />
+          controls
+          style="width: 100%; height: auto; display: block;"
+        ></video>
 
         <div class="project-entry-body">
           <div class="project-entry-prose">
@@ -349,9 +343,7 @@
                 feel intentional and fun rather than frustrating.
               </li>
               <li>
-                <strong>Level design</strong> — designed and built the vertical level layout to
-                teach the player the movement system progressively, introducing new obstacles as
-                momentum mastery grows.
+                <strong>Level design</strong> — designed and built the vertical level layout, introducing new obstacles for the player.
               </li>
               <li>
                 <strong>Audio</strong> — sourced and implemented all sound effects and music,
@@ -369,25 +361,21 @@
               "Rather than zeroing horizontal velocity each frame, the character controller
               accumulates velocity with no drag on the ground, meaning the player must use
               walls and jumps to redirect momentum rather than stopping and repositioning." -->
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this with a
-              technical explanation of how the frictionless physics work and what makes the
-              feel of the movement distinctive.
+              The movement in Skyrise is built to be very restrictive and to an extent frustrating, but that is intentional. The player has a lot less control over the character than in a traditional platformer as they cant move while in the air and cant stop their momentum very easliy while on the ground. This creates a unique challenge for the player as they have to learn how to use the momentum to their advantage and to navigate the level rather than relying on precise control.
             </p>
 
             <h4>Challenges &amp; Solutions</h4>
             <p>
               <!-- E.g.: making the lack of friction feel fun not frustrating,
               tuning the level difficulty curve, Unity physics gotchas. -->
-              Lorem ipsum dolor sit amet. Replace with the most interesting challenge you faced
-              building this solo and how you solved it.
+              The biggest challenge by a long shot was creating the art for the game. I have never done pixel art before and it was very difficult as art isnt something I have a lot of experience with. It was a lot of trial and error but it was fun to learn a new skill and to see the game come together visually after creating the mechanics first.
             </p>
 
             <h4>What I Learned</h4>
             <p>
               <!-- E.g.: full solo dev pipeline, Unity physics system depth,
               game feel / juice, audio implementation. -->
-              Lorem ipsum dolor sit amet. Replace with genuine takeaways from building this
-              project entirely by yourself.
+              I learned a lot about the full game development pipeline by doing this project solo. It significantly helped me when going into my group projects as I have a better understanding of how all the different aspects of game development come together and how to communicate with my teammates about different areas of development.
             </p>
 
           </div>
@@ -398,8 +386,8 @@
             <dt>Genre</dt>      <dd>2D Vertical Platformer</dd>
             <dt>My Role</dt>    <dd>Solo Developer</dd>
             <dt>Team Size</dt>  <dd>1 (solo)</dd>
-            <dt>Year</dt>       <dd>[Year]</dd>
-            <dt>Status</dt>     <dd>[Completed / In Dev]</dd>
+            <dt>Year</dt>       <dd>2024</dd>
+            <dt>Status</dt>     <dd>Completed</dd>
             <!--
               <dt>Play</dt>
               <dd><a href="https://yourname.itch.io/skyrise" target="_blank">itch.io ↗</a></dd>
@@ -424,9 +412,8 @@
     <span class="footer-brand">JG<span class="accent">.</span></span>
     <p class="footer-copy mb-0">&copy; <span id="footerYear"></span> Jayden Gero.</p>
     <div class="d-flex gap-3">
-      <a href="https://github.com/"   target="_blank" class="footer-link" aria-label="GitHub"><i class="bi bi-github"></i></a>
-      <a href="https://linkedin.com/" target="_blank" class="footer-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-      <a href="https://itch.io/"      target="_blank" class="footer-link" aria-label="itch.io"><i class="bi bi-joystick"></i></a>
+      <a href="https://github.com/Geronium234"   target="_blank" class="footer-link" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://linkedin.com/in/jaydengero" target="_blank" class="footer-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
     </div>
   </div>
 </footer>
