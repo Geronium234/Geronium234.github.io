@@ -177,14 +177,6 @@
       <div class="col-md-8">
         <h3 class="bio-name">Jayden Gero</h3>
         <p class="bio-title accent mb-3">Game Developer</p>
-
-        <!--
-          SHORT BIOGRAPHY:
-          Replace the lorem ipsum below with 2–3 short paragraphs covering:
-            - Who you are and where you're based
-            - Your experience / education (e.g. "3 years building indie games")
-            - What drives you as a developer (your passion/philosophy)
-        -->
         <p>
           I like playing video games and creating them. learning more about them is my passion and I want to bring amazing games into the world. I am located in [Star, Idaho].
         </p>
@@ -195,7 +187,6 @@
           As someone who loves games I want to help shape the future of interactive entertainment. For that my goal is to help create games that are not only fun to play but also push the boundaries of storytelling and player experience.
         </p>
 
-        <!-- Quick stats — replace numbers with your real data -->
         <div class="row g-3 mt-2">
           <div class="col-4">
             <div class="stat-box text-center">
@@ -215,14 +206,14 @@
               <span class="stat-label">Downloads</span>
             </div>
           </div> -->
+          <!-- good idea but I dont need it rn -->
         </div>
 
+        <!-- my resume and links -->
         <div class="mt-4 d-flex gap-3 flex-wrap">
-          <!-- Replace href with your actual CV/resume file -->
           <a href="assets/jayden-gero-resume.pdf" class="btn btn-outline-custom btn-sm" target="_blank">
             <i class="bi bi-file-earmark-arrow-down"></i> Download Resume
           </a>
-          <!-- Replace with real social links -->
           <a href="https://github.com/Geronium234" target="_blank" class="btn btn-icon" aria-label="GitHub"><i class="bi bi-github"></i></a>
           <a href="https://linkedin.com/in/jaydengero" target="_blank" class="btn btn-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
         </div>
@@ -648,17 +639,12 @@
     const count = 120;
     for (let i = 0; i < count; i++) {
       const dot = document.createElement('span');
-      dot.style.cssText = `
-        position:absolute;
-        width:2px; height:2px;
-        background:var(--accent);
-        opacity:${Math.random() * 0.4 + 0.05};
-        top:${Math.random() * 100}%;
-        left:${Math.random() * 100}%;
-        border-radius:50%;
-        animation: twinkle ${2 + Math.random() * 4}s ease-in-out infinite;
-        animation-delay:${Math.random() * 4}s;
-      `;
+      dot.className = 'pixel-dot';
+      dot.style.opacity = Math.random() * 0.4 + 0.05;
+      dot.style.top = Math.random() * 100 + '%';
+      dot.style.left = Math.random() * 100 + '%';
+      dot.style.animationDuration = (2 + Math.random() * 4) + 's';
+      dot.style.animationDelay = Math.random() * 4 + 's';
       grid.appendChild(dot);
     }
   })();

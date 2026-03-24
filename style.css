@@ -757,6 +757,15 @@ img { max-width: 100%; height: auto; }
   50%       { opacity: 0.5;  transform: scale(1.8); }
 }
 
+.pixel-dot {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
 
 /* ══════════════════════════════════════════════
    13. RESPONSIVE OVERRIDES
